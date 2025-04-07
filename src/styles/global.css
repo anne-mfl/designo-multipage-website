@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  --color-peach: #E7816B;
+  --color-black: #1d1c1e;
+  --color-light_peach: #ffad9b;
+  --color-dark_grey: #333136;
+  ---color-light_grey: #f1f3f5;
+
+  --font-jost: 'Jost', sans-serif;
+}
