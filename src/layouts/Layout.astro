@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Nav from "../components/Nav.astro";
 ---
 
 
@@ -16,9 +17,11 @@ import "../styles/global.css";
       rel="stylesheet"
     />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>Designo</title>
   </head>
+
   <body>
+    <Nav/>
     <slot />
   </body>
 </html>
