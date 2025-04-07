@@ -1,14 +1,17 @@
 ---
-import logo from '../assets/shared/desktop/logo-dark.png';
-import { Image } from 'astro:assets';
+import logo from "../assets/shared/desktop/logo-dark.png";
+import { Image } from "astro:assets";
 ---
 
-<nav>
-  
-  <Image src={logo} alt="Logo" />
+<nav class="flex justify-between items-center px-40 py-8 bg-white shadow-md">
+  <div>
+    <a href="/">
+      <Image src={logo} alt="Logo" class="w-[12.25rem]"/>
+    </a>
+  </div>
 
-  <ul>
-    <li><a href="/">our company</a></li>
+  <ul class="flex gap-6 uppercase">
+    <li><a href="/company">our company</a></li>
     <li><a href="/locations">locations</a></li>
     <li><a href="/contact">contact</a></li>
   </ul>
