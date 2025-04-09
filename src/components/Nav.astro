@@ -3,16 +3,162 @@ import logo from "../assets/shared/desktop/logo-dark.png";
 import { Image } from "astro:assets";
 ---
 
-<nav class="flex justify-between items-center px-40 py-8 bg-white shadow-md">
-  <div>
-    <a href="/">
-      <Image src={logo} alt="Logo" class="w-[12.25rem]"/>
-    </a>
-  </div>
+<div class="bg-white">
+  <div class="hamburger">
+    <h1 class="pl-6 py-8">
+      <a href="/">
+        <Image src={logo} alt="Logo" class="w-50" />
+      </a>
+    </h1>
 
-  <ul class="flex gap-6 uppercase">
-    <li><a href="/company">our company</a></li>
-    <li><a href="/locations">locations</a></li>
-    <li><a href="/contact">contact</a></li>
-  </ul>
-</nav>
+    <input class="menu-btn" type="checkbox" id="menu-btn" />
+    <label class="menu-icon pr-6" for="menu-btn">
+      <span class="navicon"></span>
+    </label>
+
+    <nav class="menu">
+      <a class="nav-item" href="#">OUR COMPANY</a>
+      <a class="nav-item" href="#">LOCATIONS</a>
+      <a class="nav-item" href="#">CONTACT</a>
+    </nav>
+  </div>
+</div>
+
+<style>
+  .hamburger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #menu-btn {
+    position: absolute;
+    top: -100%;
+    left: -100%;
+  }
+
+  .menu-icon {
+    visibility: hidden;
+  }
+
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 250px;
+    margin-right: 2rem;
+  }
+
+  /* when less than 1100px */
+  @media screen and (max-width: 1100px) {
+    .hamburger {
+      display: grid;
+      grid-template-areas:
+        "title   title   hamburger"
+        "nav     nav     nav";
+    }
+
+    h1 {
+      grid-area: title;
+    }
+
+    .menu a {
+      text-decoration: none;
+    }
+
+    .menu-btn {
+      display: none;
+    }
+
+    .menu-icon {
+      grid-area: hamburger;
+      cursor: pointer;
+      display: flex;
+      justify-content: flex-end;
+      align-items: baseline;
+      /* padding-top: 0px; */
+      position: relative;
+      user-select: none;
+      visibility: visible;
+    }
+
+    .navicon {
+      background: #1d1c1e;
+      display: block;
+      height: 2.5px;
+      width: 20px;
+      position: relative;
+    }
+
+    .navicon:before {
+      top: 7px;
+    }
+
+    .navicon:after {
+      top: -7px;
+    }
+
+    .navicon:before,
+    .navicon:after {
+      background: #1d1c1e;
+      display: block;
+      width: 100%;
+      height: 100%;
+      content: "";
+      position: absolute;
+      transition: all 0.2s ease-out;
+    }
+
+    .menu {
+      grid-area: nav;
+      max-width: unset;
+      max-height: 0;
+      transition: max-height 0.2s ease-out;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      /* padding: 3rem 1.5rem; */
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menu a {
+      padding: 16px 24px;
+      background-color: #1d1c1e;
+      color: white;
+      width: 100%;
+      text-align: left;
+      font-size: 24px;
+    }
+
+    .menu a:first-child {
+      padding-top: 32px;
+    }
+
+    .menu a:last-child {
+      padding-bottom: 32px;
+    }
+
+    .menu-btn:checked ~ .menu {
+      max-height: 240px;
+    }
+
+    .menu-btn:checked ~ .menu-icon .navicon {
+      background: transparent;
+    }
+
+    .menu-btn:checked ~ .menu-icon .navicon:before {
+      transform: rotate(-45deg);
+    }
+
+    .menu-btn:checked ~ .menu-icon .navicon:after {
+      transform: rotate(45deg);
+    }
+
+    .menu-btn:checked ~ .menu-icon .navicon:before,
+    .menu-btn:checked ~ .menu-icon .navicon:after {
+      top: 0;
+    }
+  }
+</style>
