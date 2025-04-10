@@ -1,11 +1,29 @@
 ---
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "layouts/Layout.astro";
+import { Image } from "astro:assets";
+import heroPhoneImage from "assets/home/desktop/image-hero-phone.png";
+import backgroundPattern from "assets/home/desktop/bg-pattern-hero-home.svg";
 ---
 
 <Layout>
-  
-  
+  <div
+    class="bg-peach text-white bg-[url(src/assets/home/desktop/bg-pattern-hero-home.svg)] bg-[position:-10px_80px] bg-cover bg-no-repeat flex flex-col items-center justify-center text-center pt-20"
+  >
+    <div class="px-6">
+      <h1 class="text_h1 mb-4">
+        Award-winning custom designs and digital branding solutions
+      </h1>
+      <p class="text_body mb-6">
+        With over 10 years in the industry, we are experienced in creating fully
+        responsive websites, app design, and engaging brand experiences. Find
+        out more about our services.
+      </p>
+      <button class="btn_white">LEARN MORE</button>
+    </div>
+    <Image
+      src={heroPhoneImage}
+      alt="Hero Smartphone"
+      class="overflow-hidden object-none object-top -mt-20"
+    />
+  </div>
 </Layout>
