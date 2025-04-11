@@ -45,8 +45,9 @@ import { Image } from "astro:assets";
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 250px;
     margin-right: 2rem;
+    white-space: nowrap;
+    gap: 42px;
   }
 
   /* when less than 1100px */
@@ -71,12 +72,13 @@ import { Image } from "astro:assets";
     }
 
     .menu-icon {
+      padding: 10px;
+      margin-right: 20px;
       grid-area: hamburger;
       cursor: pointer;
       display: flex;
       justify-content: flex-end;
       align-items: baseline;
-      /* padding-top: 0px; */
       position: relative;
       user-select: none;
       visibility: visible;
@@ -121,6 +123,7 @@ import { Image } from "astro:assets";
       background-color: #fff;
       display: flex;
       flex-direction: column;
+      gap: 0px;
     }
 
     .menu a {
