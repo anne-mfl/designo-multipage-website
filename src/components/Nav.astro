@@ -1,6 +1,7 @@
 ---
 import logo from "assets/shared/desktop/logo-dark.png";
 import { Image } from "astro:assets";
+import { menu } from "components/menu.js";
 ---
 
 <div class="bg-white">
@@ -17,9 +18,7 @@ import { Image } from "astro:assets";
     </label>
 
     <nav class="menu">
-      <a class="nav-item" href="#">OUR COMPANY</a>
-      <a class="nav-item" href="#">LOCATIONS</a>
-      <a class="nav-item" href="#">CONTACT</a>
+      {menu.map((m) => <a href={m.url}>{m.name}</a>)}
     </nav>
   </div>
 </div>

@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+import designoLogo from "assets/shared/desktop/logo-light.png";
+import facebookLogo from "assets/shared/desktop/icon-facebook.svg";
+import youtubeLogo from "assets/shared/desktop/icon-youtube.svg";
+import twitterLogo from "assets/shared/desktop/icon-twitter.svg";
+import pinterestLogo from "assets/shared/desktop/icon-pinterest.svg";
+import instagramLogo from "assets/shared/desktop/icon-instagram.svg";
+
+import { menu } from "components/menu.js";
+---
+
+<footer class="bg-black text-white pt-63 px-6 pb-16">
+  <Image src={designoLogo} alt="Designo Logo" class="w-50 mx-auto" />
+  <div class="border-b-1 border-gray-500 mt-6"></div>
+  <ul class="flex flex-col items-center mt-8 mb-10 gap-8">
+    {
+      menu.map((m) => (
+        <a href={m.url} class="text-sm">
+          {m.name}
+        </a>
+      ))
+    }
+  </ul>
+
+  <div class="opacity-50 flex flex-col items-center mb-10">
+    <h3 class="text_body font-bold">Designo Central Office</h3>
+    <p class="text_body">
+      3886 Wellington Street
+      <br />
+      Toronto, Ontario M9C 3J5
+    </p>
+  </div>
+
+  <div class="opacity-50 flex flex-col items-center mb-10">
+    <h3 class="text_body font-bold">Contact Us (Central Office)</h3>
+    <p class="text_body">
+      P: (+1) 253-863-8967
+      <br />
+      M: contact@designo.co
+    </p>
+  </div>
+
+  <ul class="flex justify-center gap-4">
+    <li><a href="#"><Image src={facebookLogo} alt="facebook"/></a></li>
+    <li><a href="#"><Image src={youtubeLogo} alt="youtube"/></a></li>
+    <li><a href="#"><Image src={twitterLogo} alt="twitter"/></a></li>
+    <li><a href="#"><Image src={pinterestLogo} alt="pinterest"/></a></li>
+    <li><a href="#"><Image src={instagramLogo} alt="instagram"/></a></li>
+  </ul>
+
+
+</footer>

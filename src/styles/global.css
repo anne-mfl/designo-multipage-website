@@ -16,8 +16,8 @@
     font-weight: 500;
     line-height: 1;  /* 48px */
     @media (max-width: 640px) {
-      font-size: 2rem;
-      line-height: 1.125;
+      font-size: 2rem; /* 32px */ 
+      line-height: 1.125; /* 36px */
     }
   }
 
@@ -52,3 +52,10 @@
     @apply bg-peach text-[0.938rem] font-medium text-white rounded-lg py-4 px-6 hover:bg-light_peach hover:cursor-pointer
   }
 }
+
+
+
+
+
+
+
