@@ -3,23 +3,48 @@ import { Image } from "astro:assets";
 import passionateImage from "assets/home/desktop/illustration-passionate.svg";
 import resourcefulImage from "assets/home/desktop/illustration-resourceful.svg";
 import friendlyImage from "assets/home/desktop/illustration-friendly.svg";
+import backgroundCircle from "assets/home/desktop/bg-pattern-hero-home.svg";
 
 const services = [
   {
     title: "PASSIONATE",
     image: passionateImage,
+    description:
+      "Each project starts with in-depth brand research to ensure we only create products that serve a purpose. We merge art, design, and technology into exiting new solutions.",
+    bg_rotation: "rotate-270",
   },
   {
     title: "RESOURCEFUL",
     image: resourcefulImage,
+    description:
+      "Everything that we do has a strategic purpose. We use an agile approach in all of out projects and value customer collaboration. It guarantees superior results that fulfill our clients' needs.",
+    bg_rotation: "rotate-180",
   },
   {
     title: "FRIENDLY",
     image: friendlyImage,
+    description:
+      "We are a group of enthusiastic folks who know how to put people first. Out success depends on our customers, and we strive to give them the best experience a company can provide.",
+    bg_rotation: "rotate-0",
   },
 ];
 ---
 
-<section>
-  values
+<section class="flex flex-col items-center gap-20 px-6">
+  {
+    services.map((service) => (
+      <div class="flex flex-col items-center">
+        <div>
+          <Image
+            src={backgroundCircle}
+            alt="Background Circle"
+            class={`absolute ${service.bg_rotation} w-[200px]`}
+          />
+          <Image src={service.image} alt={service.title} class="relative" />
+        </div>
+        <h2 class="text_h3 mb-8">{service.title}</h2>
+        <p class="text-body text-center">{service.description}</p>
+      </div>
+    ))
+  }
 </section>
