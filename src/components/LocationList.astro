@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+import australiaIllust from "assets/shared/desktop/illustration-australia.svg";
+import canadaIllust from "assets/shared/desktop/illustration-canada.svg";
+import ukIllust from "assets/shared/desktop/illustration-united-kingdom.svg";
+import backgroundCircle from "assets/home/desktop/bg-pattern-hero-home.svg";
+
+const locations = [
+  {name: "CANADA", image: canadaIllust, bg_rotation: "rotate-0"},
+  {name: "AUSTRALIA", image: australiaIllust, bg_rotation: "rotate-270"},
+  {name: "UNITED KINGDOM", image: ukIllust, bg_rotation: "rotate-180"},
+];
+---
+
+<section class="px-3 py-30 flex flex-col gap-12">
+  {
+    locations.map((location) => (
+      <div class="flex flex-col items-center">
+        <div class="mb-12">
+          <Image
+            src={backgroundCircle}
+            alt="Background Circle"
+            class={`absolute ${location.bg_rotation} w-[200px]`}
+          />
+          <Image src={location.image} alt={location.name} class="relative" />
+        </div>
+        <h2 class="text_h3 mb-8">{location.name}</h2>
+        <button class="btn_dark">SEE LOCATION</button>
+      </div>
+    ))
+  }
+</section>

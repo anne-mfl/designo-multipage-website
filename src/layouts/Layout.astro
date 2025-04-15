@@ -1,8 +1,9 @@
 ---
-import "../styles/global.css";
-import Nav from "../components/Nav.astro";
+import "styles/global.css";
+import Nav from "components/Nav.astro";
+import GetInTouch from "components/GetInTouch.astro";
+import Footer from "components/Footer.astro";
 ---
-
 
 <!doctype html>
 <html lang="en">
@@ -21,8 +22,11 @@ import Nav from "../components/Nav.astro";
   </head>
 
   <body class="font-jost">
-    <Nav/>
+    <Nav />
     <slot />
+    <GetInTouch />
+    <div class="h-16"></div>
+    <Footer />
   </body>
 </html>
 

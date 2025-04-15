@@ -1,0 +1,55 @@
+---
+import Layout from "layouts/Layout.astro";
+import { Image } from "astro:assets";
+import heroImage from "assets/about/mobile/image-about-hero.jpg";
+import worldClassTalentImage from "assets/about/mobile/image-world-class-talent.jpg";
+import realDealImage from "assets/about/mobile/image-real-deal.jpg";
+import backgroundPattern from "assets/about/mobile/bg-pattern-hero-about-mobile.svg";
+import LocationList from "components/LocationList.astro";
+---
+
+<Layout>
+  <Image src={heroImage} alt="company page main image" class="" />
+
+  <div
+    class="bg-[url(src/assets/about/mobile/bg-pattern-hero-about-mobile.svg)]
+    bg-no-repeat bg-[position:-500px_-140px]
+    text-center py-20 px-6
+    bg-peach text-white"
+  >
+    <h1 class="text_h1 mb-6">About Us</h1>
+    <p class="text_body text-[15px]">
+      Founded in 2010, we are a creative agency that produces lasting results
+      for our clients. We've partnered with many startups, corporations, and
+      nonprofits alike to craft designs that make real impact. We're always
+      looking forward to creating brands, products, and digital experiences that
+      connect with our clients' audiences.
+    </p>
+  </div>
+
+  <Image src={worldClassTalentImage} alt="" />
+
+  <div
+    class="bg-[url(src/assets/shared/desktop/bg-pattern-three-circles.svg)]
+    bg-no-repeat
+    text-center py-20 px-6
+    bg-very_light_peach"
+  >
+    <h1 class="text_h1 text-peach mb-6">World-class talent</h1>
+    <p class="text_body text-[15px]">
+      We are a crew of strategists, problem-solvers, and technologists. Every
+      design is thoughtfully vrafted from concept to laynch, endsuring success
+      in its given market. We are constantly updating our skills in a myriad of
+      platforms.
+      <br /><br />
+      Out team is multi-disciplinary and we are not merely interested in form - content
+      and meaning are just as important. We five great importance to craftsmanship,
+      service and and prompt delivery. Clients have always been impressed with our
+      high-quality outcomes that encapsulates their brand's srory and mission.
+    </p>
+  </div>
+
+  <LocationList />
+
+  <div class="h-16"></div>
+</Layout>
