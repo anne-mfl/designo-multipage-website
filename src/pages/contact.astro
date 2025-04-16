@@ -1,0 +1,21 @@
+---
+import Layout from "layouts/Layout.astro";
+import ContactForm from "components/ContactForm.jsx";
+const pageTitle = "Contact";
+---
+
+<Layout pageTitle={pageTitle}>
+  <div
+    class="bg-peach text-white py-20 px-6 text-center
+  bg-[url(src/assets/contact/mobile/bg-pattern-hero-contact-mobile.svg)]
+  bg-[position:-90px_0px] bg-no-repeat"
+  >
+    <h1 class="text_h1 pb-6">Contact Us</h1>
+    <p class="text_body pb-12">
+      Ready to take it to the next level? Let's talk about your project or idea
+      and find out how we can help your business grow. If you are looking for
+      unique digital experiences that's relatable to your users, drop us a line.
+    </p>
+    <ContactForm client:load/>
+  </div>
+</Layout>

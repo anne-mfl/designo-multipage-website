@@ -1,7 +1,7 @@
 export const menu = [
   {
     name: "OUR COMPANY",
-    url: "/company",
+    url: "/about",
   },
   {
     name: "LOCATIONS",

@@ -7,9 +7,10 @@ import realDealImage from "assets/about/mobile/image-real-deal.jpg";
 import backgroundPattern from "assets/about/mobile/bg-pattern-hero-about-mobile.svg";
 import LocationList from "components/LocationListWithIllust.astro";
 import LightPeachBgLayout from "components/LightPeachBgLayout.astro";
+const pageTitle = "About Us";
 ---
 
-<Layout>
+<Layout pageTitle={pageTitle}>
   <Image src={heroImage} alt="company page main image" class="" />
 
   <div

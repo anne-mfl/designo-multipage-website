@@ -3,9 +3,10 @@ import LightPeachBgLayout from "components/LightPeachBgLayout.astro";
 import Layout from "layouts/Layout.astro";
 import { locations } from "data/locations";
 import { Image } from "astro:assets";
+const pageTitle = "Locations";
 ---
 
-<Layout>
+<Layout pageTitle={pageTitle}>
   <section class="flex flex-col gap-10">
     {
       locations.map((location) => (
