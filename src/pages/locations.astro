@@ -1,0 +1,33 @@
+---
+import LightPeachBgLayout from "components/LightPeachBgLayout.astro";
+import Layout from "layouts/Layout.astro";
+import { locations } from "data/locations";
+import { Image } from "astro:assets";
+---
+
+<Layout>
+  <section class="flex flex-col gap-10">
+    {
+      locations.map((location) => (
+        <div>
+          <Image src={location.map} alt={`map of ${location.name}`} />
+          <LightPeachBgLayout
+            title={location.name}
+            desc={`
+              <b>${location.officename}</b>
+              <br>
+              ${location.address}
+              <br>
+              <br>
+              <b>Contact</b>
+              <br>
+              P:${location.phone}
+              <br>
+              M:${location.email}
+              `}
+          />
+        </div>
+      ))
+    }
+  </section>
+</Layout>
