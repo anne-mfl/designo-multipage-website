@@ -1,13 +1,13 @@
 ---
-import { Image } from "astro:assets";
-import rightArrowIcon from "assets/shared/desktop/icon-right-arrow.svg";
-import { services } from "data/services.js";
+import { Image } from "astro:assets"
+import rightArrowIcon from "assets/shared/desktop/icon-right-arrow.svg"
+import { services } from "data/services.js"
 ---
 
 <section class="[&_img]:rounded-2xl flex flex-col gap-6">
   {
     services
-      .filter((service) => service.name.toLowerCase() !== Astro.url.pathname.split("/").pop())
+      .filter((service) => service.name.toLowerCase() !== Astro.url.pathname.split("/services/").pop())
       .map((service) => (
       <a href={`/services/${service.name}`}>
         <div class="relative flex justify-center group">
@@ -19,7 +19,7 @@ import { services } from "data/services.js";
           "
             />
             <div class="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-white text-xl font-bold">
-              <h2 class="text_h2 mb-4 uppercase">{service.name} design</h2>
+              <h2 class="text_h2 mb-4 uppercase whitespace-nowrap">{service.name} design</h2>
               <div class="flex items-center gap-4">
                 <p class="text_h3 text-[15px]">VIEW PROJECTS</p>
                 <Image src={rightArrowIcon} alt="Right Arrow" />
