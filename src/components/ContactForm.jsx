@@ -14,7 +14,7 @@ const ContactForm = () => {
     phone: false,
     message: false,
   });
-  const [isSubmitted, setIsSubmitted] = useState(true);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();

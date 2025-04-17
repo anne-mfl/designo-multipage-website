@@ -1,0 +1,36 @@
+---
+import Layout from "layouts/Layout.astro";
+import { services } from "data/services.js";
+import ProjectCard from "components/ProjectCard.astro";
+import Services from "components/Services.astro";
+
+export function getStaticPaths() {
+  return [
+    { params: { service: "app" } },
+    { params: { service: "web" } },
+    { params: { service: "graphic" } },
+  ];
+}
+
+const { service } = Astro.params;
+const data = services.filter((s) => s.name === service)[0];
+---
+
+<Layout>
+  <div
+    class="bg-peach px-6 py-24 text-center
+    bg-[url(../src/assets/shared/mobile/bg-pattern-design-pages-intro-mobile.svg)]
+    bg-no-repeat bg-top-right"
+  >
+    <h1 class="text_h1 capitalize text-white mb-6">{service} design</h1>
+    <p class="text_body text-white">
+      {data.desc}
+    </p>
+  </div>
+
+  <section class="px-6 py-20 flex flex-col gap-10">
+    {data.projects.map((project) => <ProjectCard project={project} />)}
+  </section>
+
+  <Services />
+</Layout>

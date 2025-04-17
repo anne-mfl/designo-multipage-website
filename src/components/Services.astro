@@ -1,46 +1,33 @@
 ---
 import { Image } from "astro:assets";
-import webDesign from "assets/home/mobile/image-web-design.jpg";
-import appDesign from "assets/home/mobile/image-app-design.jpg";
-import graphicDesign from "assets/home/mobile/image-graphic-design.jpg";
 import rightArrowIcon from "assets/shared/desktop/icon-right-arrow.svg";
-
-const services = [
-  {
-    title: "WEB DESIGN",
-    image: webDesign,
-  },
-  {
-    title: "APP DESIGN",
-    image: appDesign,
-  },
-  {
-    title: "GRAPHIC DESIGN",
-    image: graphicDesign,
-  },
-];
+import { services } from "data/services.js";
 ---
 
 <section class="[&_img]:rounded-2xl flex flex-col gap-6">
-
-  {services.map((service) => (
-      <div class="relative flex justify-center">
-        <div class="">
-          <Image src={service.image} alt={service.title} class="" />
-          <div
-            class="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-white text-xl font-bold"
-          >
-            <h2 class="text_h2 mb-4">WEB DESIGN</h2>
-            <div class="flex items-center gap-4">
-              <p class="text_h3 text-[15px]">VIEW PROJECTS</p>
-              <Image
-                src={rightArrowIcon}
-                alt="Right Arrow"
-              />
+  {
+    services
+      .filter((service) => service.name.toLowerCase() !== Astro.url.pathname.split("/").pop())
+      .map((service) => (
+      <a href={`/services/${service.name}`}>
+        <div class="relative flex justify-center group">
+          <div class="relative">
+            <Image src={service.image} alt={service.name} class="" />
+            <div
+              class="absolute top-0 left-0 w-full h-full
+            bg-peach/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl
+          "
+            />
+            <div class="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-white text-xl font-bold">
+              <h2 class="text_h2 mb-4 uppercase">{service.name} design</h2>
+              <div class="flex items-center gap-4">
+                <p class="text_h3 text-[15px]">VIEW PROJECTS</p>
+                <Image src={rightArrowIcon} alt="Right Arrow" />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-  ))}
-
+      </a>
+    ))
+  }
 </section>

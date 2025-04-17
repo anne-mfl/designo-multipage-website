@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import backgroundCircle from "assets/home/desktop/bg-pattern-hero-home.svg";
-import {locations} from "data/locations.js";
+import { locations } from "data/locations.js";
 ---
 
 <section class="px-3 py-30 flex flex-col gap-12">
@@ -17,7 +17,9 @@ import {locations} from "data/locations.js";
           <Image src={location.illust} alt={location.name} class="relative" />
         </div>
         <h2 class="text_h3 mb-8 uppercase">{location.name}</h2>
-        <button class="btn_dark">SEE LOCATION</button>
+        <a href="/locations">
+          <button class="btn_dark">SEE LOCATION</button>
+        </a>
       </div>
     ))
   }
