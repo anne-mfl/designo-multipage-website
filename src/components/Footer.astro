@@ -10,7 +10,7 @@ import instagramLogo from "assets/shared/desktop/icon-instagram.svg";
 import { menu } from "data/menu.js";
 ---
 
-<footer class="bg-black text-white pt-63 px-6 pb-16">
+<footer class={`bg-black text-white ${Astro.url.pathname === '/contact' ? 'pt-16' : 'pt-64'} px-6 pb-16`}>
   <Image src={designoLogo} alt="Designo Logo" class="w-50 mx-auto" />
   <div class="border-b-1 border-gray-500 mt-6"></div>
   <ul class="flex flex-col items-center mt-8 mb-10 gap-8">
@@ -48,6 +48,4 @@ import { menu } from "data/menu.js";
     <li><a href="#"><Image src={pinterestLogo} alt="pinterest"/></a></li>
     <li><a href="#"><Image src={instagramLogo} alt="instagram"/></a></li>
   </ul>
-
-
 </footer>

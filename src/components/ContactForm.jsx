@@ -1,6 +1,5 @@
-import { useState } from "preact/hooks";
-import { Image } from "astro:assets";
-import errorIcon from "assets/contact/desktop/icon-error.svg";
+import { useState, useEffect } from "preact/hooks";
+
 
 const ContactForm = () => {
   const [inputForm, setInputForm] = useState({
@@ -9,14 +8,13 @@ const ContactForm = () => {
     phone: "",
     message: "",
   });
-  console.log(inputForm)
   const [error, setError] = useState({
     name: false,
     email: false,
     phone: false,
     message: false,
   });
-  console.log(error)
+  const [isSubmitted, setIsSubmitted] = useState(true);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,48 +26,74 @@ const ContactForm = () => {
     };
     setError(newError);
 
-    // Proceed only if there are no errors
     if (!Object.values(newError).includes(true)) {
-      console.log("Form submitted successfully", inputForm);
+      setIsSubmitted(true);
     }
   };
+
+  useEffect(() => {
+    const formInputs = document.querySelectorAll(".form_input");
+    formInputs.forEach((input) => {
+      input.addEventListener("focus", () => {
+        setError((prevError) => ({ ...prevError, [input.name]: false }));
+      });
+    });
+    return () => {
+      formInputs.forEach((input) => {
+        input.removeEventListener("focus", () => {
+          setError((prevError) => ({ ...prevError, [input.name]: false }));
+        });
+      });
+    };
+  }, []);
+
+
+  const ErrorMessage = () => (
+    <span className="flex items-center gap-2 italic text-sm float-end -mt-8">
+      Can't be empty
+      <span>
+        <img src="/src/assets/contact/desktop/icon-error.svg" alt="exclamation mark" />
+      </span>
+    </span>
+  )
 
   return (
     <form onSubmit={handleSubmit}>
       <input
+        name="name"
         type="text"
         placeholder="Name"
-        className={`form_input ${error.name ? "input-error" : ""}`}
-        required
+        className="form_input"
         onChange={(e) => setInputForm({ ...inputForm, name: e.target.value })}
       />
-      {error.name && <span className="error-text">Name is required</span>}
+      {error.name && <ErrorMessage />}
       <input
+        name="email"
         type="text"
         placeholder="Email Address"
-        className={`form_input ${error.email ? "input-error" : ""}`}
-        required
+        className="form_input"
         onChange={(e) => setInputForm({ ...inputForm, email: e.target.value })}
       />
-      {error.email && <span className="error-text">Email is required</span>}
+      {error.email && <ErrorMessage />}
       <input
+        name="phone"
         type="text"
         placeholder="Phone"
-        className={`form_input ${error.phone ? "input-error" : ""}`}
-        required
+        className="form_input"
         onChange={(e) => setInputForm({ ...inputForm, phone: e.target.value })}
       />
-      {error.phone && <span className="error-text">Phone is required</span>}
+      {error.phone && <ErrorMessage />}
       <textarea
+        name="message"
         placeholder="Your Message"
         rows={3}
-        className={`form_input resize-none ${error.message ? "input-error" : ""}`}
-        required
+        className="form_input resize-none"
         onChange={(e) => setInputForm({ ...inputForm, message: e.target.value })}
       ></textarea>
-      {error.message && <span className="error-text">Message is required</span>}
+      {error.message && <ErrorMessage />}
 
       <input type="submit" value="SUBMIT" className="btn_white mt-10 px-12" />
+      {isSubmitted && <p class="mt-8 font-semibold">Thank you! Your message has been sent successfully. We'll be in touch shortly.</p>}
     </form>
   );
 }

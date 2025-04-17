@@ -1,6 +1,7 @@
 ---
 import Layout from "layouts/Layout.astro";
 import ContactForm from "components/ContactForm.jsx";
+import LocationListWithIllust from "components/LocationListWithIllust.astro";
 const pageTitle = "Contact";
 ---
 
@@ -16,6 +17,8 @@ const pageTitle = "Contact";
       and find out how we can help your business grow. If you are looking for
       unique digital experiences that's relatable to your users, drop us a line.
     </p>
-    <ContactForm client:load/>
+    <ContactForm client:load />
   </div>
+
+  <LocationListWithIllust />
 </Layout>

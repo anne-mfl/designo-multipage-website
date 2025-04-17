@@ -3,7 +3,7 @@ import "styles/global.css";
 import Nav from "components/Nav.astro";
 import GetInTouch from "components/GetInTouch.astro";
 import Footer from "components/Footer.astro";
-const {pageTitle} = Astro.props;
+const { pageTitle } = Astro.props;
 ---
 
 <!doctype html>
@@ -25,8 +25,14 @@ const {pageTitle} = Astro.props;
   <body class="font-jost">
     <Nav />
     <slot />
-    <GetInTouch />
-    <div class="h-16"></div>
+    {
+      Astro.url.pathname !== "/contact" && (
+        <>
+          <GetInTouch />
+          <div class="h-16" />
+        </>
+      )
+    }
     <Footer />
   </body>
 </html>
