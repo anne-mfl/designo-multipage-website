@@ -24,7 +24,9 @@ const { pageTitle } = Astro.props;
 
   <body class="font-jost">
     <Nav />
-    <slot />
+    <div class="px-10">
+      <slot />
+    </div>
     {
       Astro.url.pathname !== "/contact" && (
         <>
@@ -36,6 +38,8 @@ const { pageTitle } = Astro.props;
     <Footer />
   </body>
 </html>
+
+
 
 <style>
   html,

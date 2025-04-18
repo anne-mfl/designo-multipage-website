@@ -13,15 +13,20 @@ import timbrownImage from "assets/graphic-design/desktop/image-change.jpg";
 import boxedwaterImage from "assets/graphic-design/desktop/image-boxed-water.jpg";
 import scienceImage from "assets/graphic-design/desktop/image-science.jpg";
 
-import webDesign from "assets/home/mobile/image-web-design.jpg";
-import appDesign from "assets/home/mobile/image-app-design.jpg";
-import graphicDesign from "assets/home/mobile/image-graphic-design.jpg";
+import webDesignMobile from "assets/home/mobile/image-web-design.jpg";
+import appDesignMobile from "assets/home/mobile/image-app-design.jpg";
+import graphicDesignMobile from "assets/home/mobile/image-graphic-design.jpg";
+import webDesignTablet from "assets/home/tablet/image-web-design.jpg";
+import appDesignTablet from "assets/home/tablet/image-app-design.jpg";
+import graphicDesignTablet from "assets/home/tablet/image-graphic-design.jpg";
+
 import rightArrowIcon from "assets/shared/desktop/icon-right-arrow.svg";
 
 export const services = [
   {
     name: "web",
-    image: webDesign,
+    image: webDesignMobile,
+    image2: webDesignTablet,
     desc: "We build websites that serve as powerful marketing tools and bring memorable brand experiences.",
     projects: [
       {
@@ -58,7 +63,8 @@ export const services = [
   },
   {
     name: "app",
-    image: appDesign,
+    image: appDesignMobile,
+    image2: appDesignTablet,
     desc: "Our mobile designs bring intuitive digital solutions to your customers right at their fingertips.",
     projects: [
       {
@@ -90,7 +96,8 @@ export const services = [
   },
   {
     name: "graphic",
-    image: graphicDesign,
+    image: graphicDesignMobile,
+    image2: graphicDesignTablet,
     desc: "We deliver eye-catching branding materials that are tailored to meet your business objectives.",
     projects: [
       {

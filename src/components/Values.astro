@@ -5,7 +5,7 @@ import resourcefulImage from "assets/home/desktop/illustration-resourceful.svg";
 import friendlyImage from "assets/home/desktop/illustration-friendly.svg";
 import backgroundCircle from "assets/home/desktop/bg-pattern-hero-home.svg";
 
-const services = [
+const values = [
   {
     title: "PASSIONATE",
     image: passionateImage,
@@ -30,20 +30,22 @@ const services = [
 ];
 ---
 
-<section class="flex flex-col items-center gap-20 px-6">
+<section class="flex flex-col items-center gap-20 px-6 md:gap-8">
   {
-    services.map((service) => (
-      <div class="flex flex-col items-center">
-        <div>
+    values.map((service) => (
+      <div class="flex flex-col items-center md:flex-row md:gap-12">
+        <div class="w-fit">
           <Image
             src={backgroundCircle}
             alt="Background Circle"
-            class={`absolute ${service.bg_rotation} w-[200px]`}
+            class={`absolute ${service.bg_rotation} w-[202px]`}
           />
-          <Image src={service.image} alt={service.title} class="relative" />
+          <Image src={service.image} alt={service.title} class="relative min-w-full" />
         </div>
-        <h2 class="text_h3 mb-8">{service.title}</h2>
-        <p class="text-body text-center">{service.description}</p>
+        <div class="text-center md:text-left">
+          <h2 class="text_h3 mb-8">{service.title}</h2>
+          <p class="text-body md:max-w-110">{service.description}</p>
+        </div>
       </div>
     ))
   }
