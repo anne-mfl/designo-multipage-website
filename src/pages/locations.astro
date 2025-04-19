@@ -1,34 +1,58 @@
 ---
-import LightPeachBgLayout from "components/LightPeachBgLayout.astro";
+import LightPeachBgLayout from "components/LightPeachBgCard.astro";
 import Layout from "layouts/Layout.astro";
 import { locations } from "data/locations";
 import { Image } from "astro:assets";
+import LocationCard from "components/LocationCard.astro"
 const pageTitle = "Locations";
 ---
 
 <Layout pageTitle={pageTitle}>
-  <section class="flex flex-col gap-10">
+  <section class="flex flex-col gap-10 md:gap-30">
     {
       locations.map((location) => (
-        <div>
-          <Image src={location.map} alt={`map of ${location.name}`} />
-          <LightPeachBgLayout
-            title={location.name}
-            desc={`
-              <b>${location.officename}</b>
-              <br>
-              ${location.address}
-              <br>
-              <br>
-              <b>Contact</b>
-              <br>
-              P:${location.phone}
-              <br>
-              M:${location.email}
-              `}
-          />
-        </div>
+         
+          <LocationCard location={location}/>
       ))
     }
   </section>
 </Layout>
+
+<!-- ---
+const { location } = Astro.props;
+---
+
+<section>
+  <picture>
+    <source srcset={location.mapTablet.src} media="(min-width: 768px)" />
+    <img
+      src={location.map.src}
+      alt={location.name}
+      class="w-full md:rounded-2xl"
+    />
+  </picture>
+
+  <div class="md:h-7"></div>
+
+  <div
+    class="bg-[url(src/assets/shared/desktop/bg-pattern-three-circles.svg)]
+    bg-no-repeat
+    text-center py-20 px-6 md:py-16 md:px-14
+    bg-very_light_peach md:rounded-b-2xl"
+  >
+
+    <h1 class="text_h1 text-peach mb-6">{location.name}</h1>
+
+    <div class="text_body text-[15px]">
+      <h2 class="font-semibold">{location.officename}</h2>
+      <p>{location.address}</p>
+    </div>
+
+    <div class="text_body">
+      <h2 class="font-semibold">Contact</h2>
+      <p>P:{location.phone}</p>
+      <p>M:{location.email}</p>
+    </div>
+
+  </div>
+</section> -->

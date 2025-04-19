@@ -25,8 +25,8 @@ import rightArrowIcon from "assets/shared/desktop/icon-right-arrow.svg";
 export const services = [
   {
     name: "web",
-    image: webDesignMobile,
-    image2: webDesignTablet,
+    imageMobile: webDesignMobile,
+    imageTablet: webDesignTablet,
     desc: "We build websites that serve as powerful marketing tools and bring memorable brand experiences.",
     projects: [
       {
@@ -63,8 +63,8 @@ export const services = [
   },
   {
     name: "app",
-    image: appDesignMobile,
-    image2: appDesignTablet,
+    imageMobile: appDesignMobile,
+    imageTablet: appDesignTablet,
     desc: "Our mobile designs bring intuitive digital solutions to your customers right at their fingertips.",
     projects: [
       {
@@ -96,8 +96,8 @@ export const services = [
   },
   {
     name: "graphic",
-    image: graphicDesignMobile,
-    image2: graphicDesignTablet,
+    imageMobile: graphicDesignMobile,
+    imageTablet: graphicDesignTablet,
     desc: "We deliver eye-catching branding materials that are tailored to meet your business objectives.",
     projects: [
       {
