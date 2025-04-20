@@ -92,7 +92,9 @@ const ContactForm = () => {
       ></textarea>
       {error.message && <ErrorMessage />}
 
-      <input type="submit" value="SUBMIT" className="btn_white mt-10 px-12" />
+      <div class="flex justify-center md:justify-end">
+        <input type="submit" value="SUBMIT" className="btn_white mt-10 px-12" />
+      </div>
       {isSubmitted && <p class="mt-8 font-semibold">Thank you! Your message has been sent successfully. We'll be in touch shortly.</p>}
     </form>
   );
