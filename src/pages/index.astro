@@ -14,13 +14,15 @@ const pageTitle = "Designo Home";
   <div
     class="bg-peach text-white bg-[url(src/assets/home/desktop/bg-pattern-hero-home.svg)] bg-size-[640px]
     bg-[position:-10px_80px] bg-no-repeat flex flex-col items-center justify-center text-center
-    pt-20 h-[843px] md:pt-15 md:rounded-2xl md:bg-[position:180px_100px]"
+    pt-20 h-[843px] md:pt-15 md:rounded-2xl md:bg-[position:180px_100px]
+    lg:grid lg:grid-cols-[2fr_1fr] lg:bg-right-top lg:pt-0 lg:text-left lg:h-[640px] lg:overflow-hidden
+    "
   >
-    <div class="px-6 md:px-14">
-      <h1 class="text_h1 mb-4">
+    <div class="px-6 md:px-14 lg:px-24">
+      <h1 class="text_h1 mb-4 lg:mb-8">
         Award-winning custom designs and digital branding solutions
       </h1>
-      <p class="text_body mb-6 md:mx-16">
+      <p class="text_body mb-6 md:mx-16 lg:ml-0 lg:mr-32 lg:mb-12">
         With over 10 years in the industry, we are experienced in creating fully
         responsive websites, app design, and engaging brand experiences. Find
         out more about our services.
@@ -32,9 +34,10 @@ const pageTitle = "Designo Home";
     <Image
       src={heroPhoneImage}
       alt="Hero Smartphone"
-      class="overflow-hidden object-none object-top -mt-20"
-    />
-  </div>
+      class="overflow-hidden object-none object-top -mt-20 lg:-mt-50 lg:-ml-16 lg:overflow-visible "
+      />
+    </div>
+    <!-- style="transform: translate(90px, 100px);" -->
 
   <div class="h-30"></div>
 

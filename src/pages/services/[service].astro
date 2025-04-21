@@ -14,9 +14,10 @@ export function getStaticPaths() {
 
 const { service } = Astro.params;
 const data = services.filter((s) => s.name === service)[0];
+const pageTitle = `${service.charAt(0).toUpperCase() + service.slice(1)} Design`;
 ---
 
-<Layout>
+<Layout pageTitle={pageTitle}>
   <div
     class="bg-peach px-6 py-24 text-center
     bg-[url(../src/assets/shared/mobile/bg-pattern-design-pages-intro-mobile.svg)]
