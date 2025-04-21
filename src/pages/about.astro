@@ -21,11 +21,14 @@ const pageTitle = "About Us";
       <source srcset={heroImageTablet.src} media="(min-width: 768px)" />
       <img src={heroImageMobile.src} alt="meeting table with laptops, cups of coffee, smart phones and hands shot from above" class="w-full md:rounded-t-2xl" />
     </picture>
+    <!-- bg-[url(src/assets/about/desktop/bg-pattern-hero-about-desktop.svg)] -->
     <div
       class="bg-[url(src/assets/about/mobile/bg-pattern-hero-about-mobile.svg)]
-    bg-no-repeat bg-[position:-500px_-140px]
-    text-center py-20 px-6 md:py-16 md:px-14
-    bg-peach text-white md:rounded-b-2xl"
+        bg-no-repeat bg-[position:-500px_-140px]
+        md:bg-[url(src/assets/about/desktop/bg-pattern-hero-about-desktop.svg)]
+        md:bg-[position:bottom_100px_left_-120px] md:bg-size-[640px]
+        text-center py-20 px-6 md:py-16 md:px-16
+        bg-peach text-white md:rounded-b-2xl"
     >
       <h1 class="text_h1 mb-6">About Us</h1>
       <p class="text_body text-[15px]">
