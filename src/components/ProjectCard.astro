@@ -3,10 +3,12 @@ import { Image } from "astro:assets";
 const { project } = Astro.props;
 ---
 
-<div class="bg-very_light_peach rounded-2xl">
-  <Image src={project.image} alt={project.name} class="rounded-t-2xl" />
+<div class="bg-very_light_peach rounded-2xl overflow-hidden md:grid md:grid-cols-2">
+  <Image src={project.image} alt={project.name} class="" />
   <div class="py-8 px-6 text-center">
-    <h1 class="uppercase text_h3 text-peach mb-4">{project.name}</h1>
-    <p class="text_body">{project.desc}</p>
+    <div class="h-full my-auto flex flex-col justify-center">
+      <h1 class="uppercase text_h3 text-peach mb-4">{project.name}</h1>
+      <p class="text_body">{project.desc}</p>
+    </div>
   </div>
 </div>
