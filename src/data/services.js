@@ -16,17 +16,23 @@ import scienceImage from "assets/graphic-design/desktop/image-science.jpg";
 import webDesignMobile from "assets/home/mobile/image-web-design.jpg";
 import appDesignMobile from "assets/home/mobile/image-app-design.jpg";
 import graphicDesignMobile from "assets/home/mobile/image-graphic-design.jpg";
+
 import webDesignTablet from "assets/home/tablet/image-web-design.jpg";
 import appDesignTablet from "assets/home/tablet/image-app-design.jpg";
 import graphicDesignTablet from "assets/home/tablet/image-graphic-design.jpg";
 
-import rightArrowIcon from "assets/shared/desktop/icon-right-arrow.svg";
+import webDesignDesktopSmall from "assets/home/desktop/image-web-design-small.jpg";
+import webDesignDesktopLarge from "assets/home/desktop/image-web-design-large.jpg";
+import appDesignDesktop from "assets/home/desktop/image-app-design.jpg";
+import graphicDesignDesktop from "assets/home/desktop/image-graphic-design.jpg";
 
 export const services = [
   {
     name: "web",
     imageMobile: webDesignMobile,
     imageTablet: webDesignTablet,
+    imageDesktop: webDesignDesktopSmall,
+    imageDesktopLarge: webDesignDesktopLarge,
     desc: "We build websites that serve as powerful marketing tools and bring memorable brand experiences.",
     projects: [
       {
@@ -65,6 +71,7 @@ export const services = [
     name: "app",
     imageMobile: appDesignMobile,
     imageTablet: appDesignTablet,
+    imageDesktop: appDesignDesktop,
     desc: "Our mobile designs bring intuitive digital solutions to your customers right at their fingertips.",
     projects: [
       {
@@ -98,6 +105,7 @@ export const services = [
     name: "graphic",
     imageMobile: graphicDesignMobile,
     imageTablet: graphicDesignTablet,
+    imageDesktop: graphicDesignDesktop,
     desc: "We deliver eye-catching branding materials that are tailored to meet your business objectives.",
     projects: [
       {
