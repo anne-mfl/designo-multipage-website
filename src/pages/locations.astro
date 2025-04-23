@@ -3,20 +3,16 @@ import LightPeachBgLayout from "components/LightPeachBgCard.astro";
 import Layout from "layouts/Layout.astro";
 import { locations } from "data/locations";
 import { Image } from "astro:assets";
-import LocationCard from "components/LocationCard.astro"
+import LocationCard from "components/LocationCard.astro";
 const pageTitle = "Locations";
 ---
 
 <Layout pageTitle={pageTitle}>
-  <section class="flex flex-col gap-10 md:gap-30">
-    {
-      locations.map((location) => (
-         
-          <LocationCard location={location}/>
-      ))
-    }
+  <section class="flex flex-col gap-10 md:gap-30 lg:gap-7">
+    {locations.map((location, i) => <LocationCard location={location} index={i}/>)}
   </section>
 </Layout>
+
 
 <!-- ---
 const { location } = Astro.props;

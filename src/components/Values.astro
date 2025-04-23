@@ -30,10 +30,10 @@ const values = [
 ];
 ---
 
-<section class="flex flex-col items-center gap-20 px-6 md:gap-8">
+<section class="flex flex-col items-center gap-20 px-6 md:gap-8 lg:flex-row lg:px-0">
   {
     values.map((service) => (
-      <div class="flex flex-col items-center md:flex-row md:gap-12">
+      <div class="flex flex-col items-center md:flex-row md:gap-12 lg:flex-col">
         <div class="w-fit">
           <Image
             src={backgroundCircle}
@@ -42,7 +42,7 @@ const values = [
           />
           <Image src={service.image} alt={service.title} class="relative min-w-full" />
         </div>
-        <div class="text-center md:text-left">
+        <div class="text-center md:text-left lg:text-center">
           <h2 class="text_h3 mb-8">{service.title}</h2>
           <p class="text-body md:max-w-110">{service.description}</p>
         </div>

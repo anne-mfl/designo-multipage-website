@@ -1,9 +1,11 @@
 import australiaIllust from "assets/shared/desktop/illustration-australia.svg";
 import canadaIllust from "assets/shared/desktop/illustration-canada.svg";
 import ukIllust from "assets/shared/desktop/illustration-united-kingdom.svg";
-import australiaMap from "assets/locations/desktop/image-map-australia.png"
-import canadaMap from "assets/locations/desktop/image-map-canada.png"
-import ukMap from "assets/locations/desktop/image-map-united-kingdom.png"
+
+import australiaMapMobile from "assets/locations/desktop/image-map-australia.png"
+import canadaMapMobile from "assets/locations/desktop/image-map-canada.png"
+import ukMapMobile from "assets/locations/desktop/image-map-united-kingdom.png"
+
 import australiaMapTablet from "assets/locations/tablet/image-map-australia.png"
 import canadaMapTablet from "assets/locations/tablet/image-map-canada.png"
 import ukMapTablet from "assets/locations/tablet/image-map-uk.png"
@@ -14,7 +16,7 @@ export const locations = [
     illust: canadaIllust,
     bg_circle_rotation: "rotate-0",
     officename: "Designo Central Office",
-    map: canadaMap,
+    mapMobile: canadaMapMobile,
     mapTablet: canadaMapTablet,
     address: "3886 Wellington Street<br>Toronto, Ontario M9C 3J5",
     phone: "+1 253-863-8967",
@@ -25,7 +27,7 @@ export const locations = [
     illust: australiaIllust,
     bg_circle_rotation: "rotate-270",
     officename: "Designo AU Office",
-    map: australiaMap,
+    mapMobile: australiaMapMobile,
     mapTablet: australiaMapTablet,
     address: "19 Balonne Street<br>New South Wales 2443",
     phone: "(02) 6720 9092",
@@ -36,7 +38,7 @@ export const locations = [
     illust: ukIllust,
     bg_circle_rotation: "rotate-180",
     officename: "Designo UK Office",
-    map: ukMap,
+    mapMobile: ukMapMobile,
     mapTablet: ukMapTablet,
     address: "13 Colorado Way<br>Rhyd-y-fro SA8 9GA",
     phone: "078 3115 1400",

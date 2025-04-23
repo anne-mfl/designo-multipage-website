@@ -4,10 +4,10 @@ import backgroundCircle from "assets/home/desktop/bg-pattern-hero-home.svg";
 import { locations } from "data/locations.js";
 ---
 
-<section class="px-3 py-30 flex flex-col gap-12">
+<section class="px-3 py-30 flex flex-col gap-12 md:px-0 lg:py-40 lg:flex-row ">
   {
     locations.map((location) => (
-      <div class="flex flex-col items-center">
+      <div class="flex flex-col items-center lg:flex-1">
         <div class="mb-12">
           <Image
             src={backgroundCircle}

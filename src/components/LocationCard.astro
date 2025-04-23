@@ -1,30 +1,34 @@
 ---
-const { location } = Astro.props;
+const { location, index } = Astro.props;
 ---
 
-<section>
+<section
+  class={`lg:flex lg:gap-7 ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
+>
   <picture>
+    <source srcset={location.mapMobile.src} media="(min-width: 1026px)" />
     <source srcset={location.mapTablet.src} media="(min-width: 768px)" />
     <img
-      src={location.map.src}
+      src={location.mapMobile.src}
       alt={location.name}
       class="w-full md:rounded-2xl"
     />
   </picture>
 
-  <div class="md:h-7"></div>
+  <div class="md:h-7 lg:hidden"></div>
 
   <div
     class="bg-[url(src/assets/shared/desktop/bg-pattern-three-circles.svg)]
     bg-no-repeat text-center md:text-left
     md:bg-left-bottom
     py-20 px-6 md:py-22 md:px-16
-    bg-very_light_peach md:rounded-2xl"
+    bg-very_light_peach md:rounded-2xl
+    lg:flex-1"
   >
     <h1 class="text_h1 text-[40px] text-peach mb-6">{location.name}</h1>
 
     <div class="flex flex-col gap-6 text_body md:flex-row">
-      <div class="w-1/2">
+      <div class="md:w-1/2">
         <h2 class="font-semibold">{location.officename}</h2>
         {
           location.address.split("<br>").map((line: string, index: number) => (
@@ -35,7 +39,7 @@ const { location } = Astro.props;
           ))
         }
       </div>
-      <div class="w-1/2">
+      <div class="md:w-1/2">
         <h2 class="font-semibold">Contact</h2>
         <p>P:{location.phone}</p>
         <p>M:{location.email}</p>

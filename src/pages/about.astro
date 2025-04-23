@@ -1,34 +1,48 @@
 ---
 import Layout from "layouts/Layout.astro";
 import { Image } from "astro:assets";
-import heroImageMobile from "assets/about/mobile/image-about-hero.jpg";
-import worldClassTalentImageMobile from "assets/about/mobile/image-world-class-talent.jpg";
-import realDealImageMobile from "assets/about/mobile/image-real-deal.jpg";
 import backgroundPattern from "assets/about/mobile/bg-pattern-hero-about-mobile.svg";
 import LocationList from "components/LocationListWithIllust.astro";
 import LightPeachBgLayout from "components/LightPeachBgCard.astro";
 
+import heroImageMobile from "assets/about/mobile/image-about-hero.jpg";
+import worldClassTalentImageMobile from "assets/about/mobile/image-world-class-talent.jpg";
+import realDealImageMobile from "assets/about/mobile/image-real-deal.jpg";
+
 import heroImageTablet from "assets/about/tablet/image-about-hero.jpg";
 import worldClassTalentImageTablet from "assets/about/tablet/image-world-class-talent.jpg";
 import realDealImageTablet from "assets/about/tablet/image-real-deal.jpg";
+
+import heroImageDesktop from "assets/about/desktop/image-about-hero.jpg";
+import worldClassTalentImageDesktop from "assets/about/desktop/image-world-class-talent.jpg";
+import realDealImageDesktop from "assets/about/desktop/image-real-deal.jpg";
 
 const pageTitle = "About Us";
 ---
 
 <Layout pageTitle={pageTitle}>
 
+  <section class="lg:flex lg:flex-row-reverse">
     <picture>
+      <source srcset={heroImageDesktop.src} media="(min-width: 1026px)" />
       <source srcset={heroImageTablet.src} media="(min-width: 768px)" />
-      <img src={heroImageMobile.src} alt="meeting table with laptops, cups of coffee, smart phones and hands shot from above" class="w-full md:rounded-t-2xl" />
+      <img
+        src={heroImageMobile.src}
+        alt="meeting table with laptops, cups of coffee, smart phones and hands shot from above"
+        class="w-full h-full object-contain md:rounded-t-2xl lg:rounded-t-none lg:rounded-r-2xl"
+      />
     </picture>
-    <!-- bg-[url(src/assets/about/desktop/bg-pattern-hero-about-desktop.svg)] -->
     <div
       class="bg-[url(src/assets/about/mobile/bg-pattern-hero-about-mobile.svg)]
-        bg-no-repeat bg-[position:-500px_-140px]
-        md:bg-[url(src/assets/about/desktop/bg-pattern-hero-about-desktop.svg)]
-        md:bg-[position:bottom_100px_left_-120px] md:bg-size-[640px]
-        text-center py-20 px-6 md:py-16 md:px-16
-        bg-peach text-white md:rounded-b-2xl"
+          bg-no-repeat bg-[position:-500px_-140px]
+          md:bg-[url(src/assets/about/desktop/bg-pattern-hero-about-desktop.svg)]
+          md:bg-[position:bottom_100px_left_-120px] md:bg-size-[640px]
+          lg:bg-bottom-right
+          py-20 px-6 md:py-16 md:px-16 lg:py-32 lg:px-20
+          bg-peach text-white md:rounded-b-2xl lg:rounded-none lg:rounded-l-2xl
+          text-center lg:text-left
+          lg:flex-1
+          "
     >
       <h1 class="text_h1 mb-6">About Us</h1>
       <p class="text_body text-[15px]">
@@ -39,30 +53,47 @@ const pageTitle = "About Us";
         that connect with our clients' audiences.
       </p>
     </div>
+  </section>
 
-    <div class="md:h-20"></div>
+  <div class="md:h-20 lg:h-40"></div>
 
-  <picture>
-    <source srcset={worldClassTalentImageTablet.src} media="(min-width: 768px)" />
-    <img src={worldClassTalentImageMobile.src} alt="meeting table with laptops, cups of coffee, smart phones and hands shot from above" class="w-full md:rounded-t-2xl" />
-  </picture>
-  <LightPeachBgLayout
-    title="World-class talent"
-    desc="We are a crew of strategists, problem-solvers, and technologists. Every design is thoughtfully crafted from concept to launch, ensuring success in its given market. We are constantly updating our skills in a myriad of platforms. <br><br>Our team is multi-disciplinary and we are not merely interested in form - content and meaning are just as important. We give great importance to craftsmanship, service and prompt delivery. Clients have always been impressed with our high-quality outcomes that encapsulates their brand's story and mission."
-  />
+  <section class="lg:flex md:rounded-2xl md:overflow-hidden">
+    <picture>
+      <source
+        srcset={worldClassTalentImageDesktop.src}
+        media="(min-width: 1026px)"
+      />
+      <source
+        srcset={worldClassTalentImageTablet.src}
+        media="(min-width: 768px)"
+      />
+      <img
+        src={worldClassTalentImageMobile.src}
+        alt="meeting table with laptops, cups of coffee, smart phones and hands shot from above"
+        class="w-full"
+      />
+    </picture>
+    <LightPeachBgLayout
+      title="World-class talent"
+      desc="We are a crew of strategists, problem-solvers, and technologists. Every design is thoughtfully crafted from concept to launch, ensuring success in its given market. We are constantly updating our skills in a myriad of platforms. <br><br>Our team is multi-disciplinary and we are not merely interested in form - content and meaning are just as important. We give great importance to craftsmanship, service and prompt delivery. Clients have always been impressed with our high-quality outcomes that encapsulates their brand's story and mission."
+    />
+  </section>
 
   <LocationList />
 
-  <!-- <Image
-    src={realDealImageMobile}
-    alt="A hand putting a picture on a wall with other pictures"
-  /> -->
-  <picture>
-    <source srcset={realDealImageTablet.src} media="(min-width: 768px)" />
-    <img src={realDealImageMobile.src} alt="meeting table with laptops, cups of coffee, smart phones and hands shot from above" class="w-full md:rounded-t-2xl" />
-  </picture>
-  <LightPeachBgLayout
-    title="The real deal"
-    desc="As strategic partners in our clients' business, we are ready to take on any challenge as our own. Solving real problems require empathy and collaboration, and we strive to bring a fresh perspective to every opportunity. We make design and technology more accessible and give you tools to measure success. <br><br>We are visual storytellers in appealing and captivating ways. By combining business and marketing strategies, we inspire audiences to take action and drive real results."
-  />
+  <section class="lg:flex lg:flex-row-reverse md:rounded-2xl md:overflow-hidden">
+    <picture>
+      <source srcset={realDealImageDesktop.src} media="(min-width: 1026px)" />
+      <source srcset={realDealImageTablet.src} media="(min-width: 768px)" />
+      <img
+        src={realDealImageMobile.src}
+        alt="meeting table with laptops, cups of coffee, smart phones and hands shot from above"
+        class="w-full"
+      />
+    </picture>
+    <LightPeachBgLayout
+      title="The real deal"
+      desc="As strategic partners in our clients' business, we are ready to take on any challenge as our own. Solving real problems require empathy and collaboration, and we strive to bring a fresh perspective to every opportunity. We make design and technology more accessible and give you tools to measure success. <br><br>We are visual storytellers in appealing and captivating ways. By combining business and marketing strategies, we inspire audiences to take action and drive real results."
+    />
+  </section>
 </Layout>

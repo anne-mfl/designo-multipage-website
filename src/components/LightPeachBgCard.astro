@@ -5,25 +5,18 @@ const { title, desc } = Astro.props;
 <div
   class="bg-[url(src/assets/shared/desktop/bg-pattern-three-circles.svg)]
     bg-no-repeat
-    md:bg-[position:bottom_25px_right]
-    text-center py-20 px-6 md:py-16 md:px-14
-    bg-very_light_peach md:rounded-b-2xl"
->
+    md:bg-[position:bottom_25px_right] lg:bg-bottom
+    py-20 px-6 md:py-16 md:px-14 lg:py-36 lg:px-24
+    bg-very_light_peach
+    text-center lg:text-left lg:flex-1
+    "
+    >
+    <!-- md:rounded-b-2xl lg:rounded-none lg:rounded-r-2xl -->
   <h1 class="text_h1 text-peach mb-6">{title}</h1>
   <p class="text_body text-[15px]">
-    {
-      desc.split("<br>").map((line: string, index: number) => (
+    {desc.split("<br>").map((line: string, index: number) => (
         <>
           {line}
-          {/* {line
-            .split(/(<b>.*?<\/b>)/g)
-            .map((part, i) =>
-              part.startsWith("<b>") && part.endsWith("</b>") ? (
-                <b>{part.slice(3, -4)}</b>
-              ) : (
-                part
-              ),
-            )} */}
           {index < desc.split("<br>").length - 1 && <br />}
         </>
       ))
