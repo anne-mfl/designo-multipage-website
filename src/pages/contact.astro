@@ -2,27 +2,42 @@
 import Layout from "layouts/Layout.astro";
 import ContactForm from "components/ContactForm.jsx";
 import LocationListWithIllust from "components/LocationListWithIllust.astro";
+import { Image } from "astro:assets";
+import leafBackgroundImage from "assets/shared/desktop/bg-pattern-leaf.svg";
+
 const pageTitle = "Contact";
 ---
 
 <Layout pageTitle={pageTitle}>
-  <div
+  <section
     class="bg-peach text-white py-20 px-6 text-center
   bg-[url(src/assets/contact/mobile/bg-pattern-hero-contact-mobile.svg)]
   bg-[position:-90px_0px] bg-no-repeat
   md:bg-[url(src/assets/contact/desktop/bg-pattern-hero-desktop.svg)]
   md:bg-[position:-90px_-100px]
   md:rounded-2xl md:text-left md:py-18 md:px-15
-  "
+  lg:flex lg:items-center lg:py-14 lg:px-24"
   >
-    <h1 class="text_h1 pb-6">Contact Us</h1>
-    <p class="text_body pb-12">
-      Ready to take it to the next level? Let's talk about your project or idea
-      and find out how we can help your business grow. If you are looking for
-      unique digital experiences that's relatable to your users, drop us a line.
-    </p>
-    <ContactForm client:load />
-  </div>
+    <div class="lg:w-3/5">
+      <h1 class="text_h1 mb-6 lg:mb-8">Contact Us</h1>
+      <p class="text_body mb-12 lg:max-w-[460px] lg:mb-0">
+        Ready to take it to the next level? Let's talk about your project or
+        idea and find out how we can help your business grow. If you are looking
+        for unique digital experiences that's relatable to your users, drop us a
+        line.
+      </p>
+    </div>
+    <div class="lg:w-2/5">
+      <ContactForm client:load />
+    </div>
+  </section>
 
   <LocationListWithIllust />
+
+  <!-- background svg image on desktop -->
+  <Image
+    src={leafBackgroundImage}
+    alt="background svg image"
+    class="hidden lg:block lg:absolute lg:top-[830px] lg:-right-0 lg:-z-10"
+  />
 </Layout>

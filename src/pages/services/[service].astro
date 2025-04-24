@@ -3,6 +3,8 @@ import Layout from "layouts/Layout.astro";
 import { services } from "data/services.js";
 import ProjectCard from "components/ProjectCard.astro";
 import Services from "components/Services.astro";
+import { Image } from "astro:assets";
+import leafBackgroundImage from "assets/shared/desktop/bg-pattern-leaf.svg";
 
 export function getStaticPaths() {
   return [
@@ -18,23 +20,31 @@ const pageTitle = `${service.charAt(0).toUpperCase() + service.slice(1)} Design`
 ---
 
 <Layout pageTitle={pageTitle}>
-  <div
+  <section
     class="bg-peach px-6 py-24 text-center
     bg-[url(../src/assets/shared/mobile/bg-pattern-design-pages-intro-mobile.svg)]
     bg-no-repeat bg-top-right
     md:bg-[url(../src/assets/shared/tablet/bg-pattern-design-pages-intro-tablet.svg)]
-    md:bg-center
-    md:rounded-2xl"
+    md:bg-center md:rounded-2xl lg:bg-right"
   >
     <h1 class="text_h1 capitalize text-white mb-6">{service} design</h1>
     <p class="text_body text-white">
       {data.desc}
     </p>
-  </div>
+  </section>
 
-  <section class="px-6 py-20 flex flex-col gap-10 md:py-30 md:px-0 md:gap-8">
+  <section
+    class="px-6 py-20 flex flex-col gap-10 md:py-30 md:px-0 md:gap-8 lg:grid lg:grid-cols-3 lg:py-40"
+  >
     {data.projects.map((project) => <ProjectCard project={project} />)}
   </section>
 
   <Services />
+
+  <!-- background svg image on desktop -->
+  <Image
+    src={leafBackgroundImage}
+    alt="background svg image"
+    class="hidden lg:block lg:absolute lg:top-[274px] lg:left-0 lg:-z-10"
+  />
 </Layout>

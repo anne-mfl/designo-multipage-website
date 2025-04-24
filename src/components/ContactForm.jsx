@@ -11,22 +11,30 @@ const ContactForm = () => {
   const [error, setError] = useState({
     name: false,
     email: false,
-    phone: false,
     message: false,
   });
+  console.log(error)
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const isValidEmail = (email) => {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    };
+
     const newError = {
-      name: !inputForm.name.trim(),
-      email: !inputForm.email.trim(),
-      phone: !inputForm.phone.trim(),
-      message: !inputForm.message.trim(),
+      name: !inputForm.name.trim() ? "Name can't be empty" : false,
+      email: !inputForm.email.trim()
+      ? "Email can't be empty"
+      : !isValidEmail(inputForm.email)
+      ? "Invalid email address"
+      : false,
+      message: !inputForm.message.trim() ? "Message can't be empty" : false,
     };
     setError(newError);
 
-    if (!Object.values(newError).includes(true)) {
+    if (Object.values(newError).every((error) => error === false)) {
       setIsSubmitted(true);
     }
   };
@@ -48,14 +56,17 @@ const ContactForm = () => {
   }, []);
 
 
-  const ErrorMessage = () => (
+
+  const ErrorMessage = ({ message }) => (
     <span className="flex items-center gap-2 italic text-sm float-end -mt-8">
-      Can't be empty
+      {message}
       <span>
         <img src="/src/assets/contact/desktop/icon-error.svg" alt="exclamation mark" />
       </span>
     </span>
   )
+
+
 
   return (
     <form onSubmit={handleSubmit}>
@@ -66,7 +77,7 @@ const ContactForm = () => {
         className="form_input"
         onChange={(e) => setInputForm({ ...inputForm, name: e.target.value })}
       />
-      {error.name && <ErrorMessage />}
+      {error.name && <ErrorMessage message={error.name} />}
       <input
         name="email"
         type="text"
@@ -74,7 +85,7 @@ const ContactForm = () => {
         className="form_input"
         onChange={(e) => setInputForm({ ...inputForm, email: e.target.value })}
       />
-      {error.email && <ErrorMessage />}
+      {error.email && <ErrorMessage message={error.email}/>}
       <input
         name="phone"
         type="text"
@@ -82,7 +93,6 @@ const ContactForm = () => {
         className="form_input"
         onChange={(e) => setInputForm({ ...inputForm, phone: e.target.value })}
       />
-      {error.phone && <ErrorMessage />}
       <textarea
         name="message"
         placeholder="Your Message"
@@ -90,7 +100,7 @@ const ContactForm = () => {
         className="form_input resize-none"
         onChange={(e) => setInputForm({ ...inputForm, message: e.target.value })}
       ></textarea>
-      {error.message && <ErrorMessage />}
+      {error.message && <ErrorMessage message={error.message}/>}
 
       <div class="flex justify-center md:justify-end">
         <input type="submit" value="SUBMIT" className="btn_white mt-10 px-12" />

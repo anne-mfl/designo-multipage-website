@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import backgroundPattern from "assets/about/mobile/bg-pattern-hero-about-mobile.svg";
 import LocationList from "components/LocationListWithIllust.astro";
 import LightPeachBgLayout from "components/LightPeachBgCard.astro";
+import leafBackgroundImage from "assets/shared/desktop/bg-pattern-leaf.svg";
 
 import heroImageMobile from "assets/about/mobile/image-about-hero.jpg";
 import worldClassTalentImageMobile from "assets/about/mobile/image-world-class-talent.jpg";
@@ -96,4 +97,9 @@ const pageTitle = "About Us";
       desc="As strategic partners in our clients' business, we are ready to take on any challenge as our own. Solving real problems require empathy and collaboration, and we strive to bring a fresh perspective to every opportunity. We make design and technology more accessible and give you tools to measure success. <br><br>We are visual storytellers in appealing and captivating ways. By combining business and marketing strategies, we inspire audiences to take action and drive real results."
     />
   </section>
+
+  <!-- background svg image on desktop -->
+  <Image src={leafBackgroundImage} alt="background svg image" class="hidden lg:block lg:absolute lg:top-[475px] lg:left-0 lg:-z-10"/>
+  <Image src={leafBackgroundImage} alt="background svg image" class="hidden lg:block lg:absolute lg:top-[1750px] lg:-right-88 lg:-z-10 lg:rotate-180"/>
+
 </Layout>
