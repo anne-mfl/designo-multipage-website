@@ -13,7 +13,6 @@ const ContactForm = () => {
     email: false,
     message: false,
   });
-  console.log(error)
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e) => {

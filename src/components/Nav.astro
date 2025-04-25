@@ -23,6 +23,7 @@ import { menu } from "data/menu.js";
   </div>
 </div>
 
+
 <style>
   .hamburger {
     display: flex;
@@ -44,12 +45,11 @@ import { menu } from "data/menu.js";
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* margin-right: 2rem; */
     white-space: nowrap;
     gap: 42px;
   }
 
-  /* when less than 767px */
+  /* when smaller than 767px */
   @media screen and (max-width: 767px) {
     .hamburger {
       display: grid;
@@ -118,7 +118,6 @@ import { menu } from "data/menu.js";
       overflow: hidden;
       margin: 0;
       padding: 0;
-      /* padding: 3rem 1.5rem; */
       background-color: #fff;
       display: flex;
       flex-direction: column;
