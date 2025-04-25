@@ -5,6 +5,8 @@ import ProjectCard from "components/ProjectCard.astro";
 import Services from "components/Services.astro";
 import { Image } from "astro:assets";
 import leafBackgroundImage from "assets/shared/desktop/bg-pattern-leaf.svg";
+import backgroundCircleMobile from "assets/shared/mobile/bg-pattern-design-pages-intro-mobile.svg";
+import backgroundCircleTablet from "assets/shared/tablet/bg-pattern-design-pages-intro-tablet.svg";
 
 export function getStaticPaths() {
   return [
@@ -19,13 +21,14 @@ const data = services.filter((s) => s.name === service)[0];
 const pageTitle = `${service.charAt(0).toUpperCase() + service.slice(1)} Design`;
 ---
 
+<!-- bg-[url(../src/assets/shared/mobile/bg-pattern-design-pages-intro-mobile.svg)] --><!-- md:bg-[url(../src/assets/shared/tablet/bg-pattern-design-pages-intro-tablet.svg)] --><!-- bg-[url(${backgroundCircleMobile})] --><!-- md:bg-[${backgroundCircleTablet}] -->
 <Layout pageTitle={pageTitle}>
   <section
-    class="bg-peach px-6 py-24 text-center
-    bg-[url(../src/assets/shared/mobile/bg-pattern-design-pages-intro-mobile.svg)]
+    class={`bg-peach px-6 py-24 text-center
     bg-no-repeat bg-top-right
-    md:bg-[url(../src/assets/shared/tablet/bg-pattern-design-pages-intro-tablet.svg)]
-    md:bg-center md:rounded-2xl lg:bg-right"
+    md:bg-center md:rounded-2xl lg:bg-right
+    `}
+    style={`background-image: url(${backgroundCircleMobile.src})`}
   >
     <h1 class="text_h1 capitalize text-white mb-6">{service} design</h1>
     <p class="text_body text-white">
