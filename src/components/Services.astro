@@ -2,14 +2,16 @@
 import { Image } from "astro:assets";
 import rightArrowIcon from "assets/shared/desktop/icon-right-arrow.svg";
 import { services } from "data/services.js";
+
+const currentService = Astro.url.pathname.split("/services/").pop()?.replace(/\/$/, "");
 ---
 
 <section class="[&_img]:rounded-2xl flex flex-col gap-6 mx-6 md:mx-0 lg:grid lg:grid-cols-2">
   {
     services
       .filter(
-        (service) =>
-          service.name !== Astro.url.pathname.split("/services/").pop(),
+        (service) =>    
+          service.name !== currentService,
       )
       .map((service, i) => (
         <div class={`w-full ${i===0 ? 'lg:row-span-2' : ''}`}>
