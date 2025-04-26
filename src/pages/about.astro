@@ -1,7 +1,6 @@
 ---
 import Layout from "layouts/Layout.astro";
 import { Image } from "astro:assets";
-import backgroundPattern from "assets/about/mobile/bg-pattern-hero-about-mobile.svg";
 import LocationList from "components/LocationListWithIllust.astro";
 import LightPeachBgLayout from "components/LightPeachBgCard.astro";
 import leafBackgroundImage from "assets/shared/desktop/bg-pattern-leaf.svg";
@@ -34,19 +33,19 @@ const pageTitle = "About Us";
       />
     </picture>
     <div
-      class="bg-[url(src/assets/about/mobile/bg-pattern-hero-about-mobile.svg)]
+      class="bg-[url(/bgCircleSvg/bg-pattern-hero-about-mobile.svg)]
           bg-no-repeat bg-[position:-500px_-140px]
-          md:bg-[url(src/assets/about/desktop/bg-pattern-hero-about-desktop.svg)]
+          md:bg-[url(/bgCircleSvg/bg-pattern-hero-about-desktop.svg)]
           md:bg-[position:bottom_100px_left_-120px] md:bg-size-[640px]
           lg:bg-bottom-right
-          py-20 px-6 md:py-16 md:px-16 lg:py-32 lg:px-20
+          py-20 px-6 md:py-16 md:px-16 lg:px-20
           bg-peach text-white md:rounded-b-2xl lg:rounded-none lg:rounded-l-2xl
           text-center lg:text-left
-          lg:flex-1
+          lg:flex-1 lg:flex lg:flex-col lg:justify-center
           "
     >
       <h1 class="text_h1 mb-6">About Us</h1>
-      <p class="text_body text-[15px]">
+      <p class="text_body text-[15px] lg:mb-10">
         Founded in 2010, we are a creative agency that produces lasting results
         for our clients. We've partnered with many startups, corporations, and
         nonprofits alike to craft designs that make real impact. We're always
